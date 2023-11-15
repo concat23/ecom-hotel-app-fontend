@@ -1,0 +1,44 @@
+/* style.css */
+
+.select-container {
+    margin-bottom: 20px;
+  }
+  
+  #roomType {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .input-group {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .form-control {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-right: 10px;
+    box-sizing: border-box;
+  }
+  
+  .btn-hotel {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-hotel:hover {
+    background-color: #218838;
+  }
+  
+  /* Add more styles as needed */
+  

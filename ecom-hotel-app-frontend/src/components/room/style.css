@@ -1,0 +1,62 @@
+/* style.css */
+
+.container {
+  padding: 20px;
+}
+
+.col-md-8 {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.input-file-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-file {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.preview-image {
+  max-width: 400px;
+  max-height: 400px;
+  margin-bottom: 15px;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Add more styles as needed */
