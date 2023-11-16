@@ -5,11 +5,11 @@ import '../common/style.css'
 
 export const RoomTypeSelector = ({handleRoomInputChange, newRoom}) => {
     
-    const[roomTypes, setRoomTypes]  = useState([""])
+    const [roomTypes, setRoomTypes]  = useState([])
 
-    const[showNewRoomTypeInput, setShowNewRoomTypeInput] = useState(false)
+    const [showNewRoomTypeInput, setShowNewRoomTypeInput] = useState(false)
 
-    const[newRoomType, setNewRoomType] = useState("")
+    const [newRoomType, setNewRoomType] = useState("")
 
     useEffect(() =>{
         getRoomTypes().then((data) =>{
@@ -23,6 +23,7 @@ export const RoomTypeSelector = ({handleRoomInputChange, newRoom}) => {
     }
 
     const handleAddNewRoomType = () =>{
+            console.log("newRoomType: "+newRoomType)
             if(newRoomType !== ""){
                 setRoomTypes([...roomTypes, newRoomType])
                 setNewRoomType("")

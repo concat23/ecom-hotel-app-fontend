@@ -6,35 +6,66 @@ import RoomTypeSelector from '../common/RoomTypeSelector'
 export const AddRoom = () => {
     const[newRoom, setNewRoom] = useState({
         photo : null,
-        roomType : "",
-        roomPrice : ""
-})
+        roomType : '',
+        roomPrice : ''
+},[])
 
     const[imagePreview, setImagePriview] = useState("")
     const[successMessage, setSuccessMessage] = useState("")
     const[errorMessage, setErrorMessage] = useState("")
 
-    const handleRoomInputChange = (e) =>{
-        const name = e.target.name
-        let value = e.target.value
+    // const handleRoomInputChange = (e) =>{
+    //     const name = e.target.name
+    //     let value = e.target.value
 
-        if (name === "roomPrice" && !isNaN(value)) {
-            console.log("Value:"+value);
-            [name] = parseInt(value, 10);
-        } else {
-            value = "";
-        }
+    //     if (name === "roomPrice" && !isNaN(value)) {
+    //         console.log("Value:"+value);
+    //         value = parseInt(value, 10);
+    //     } else {
+    //         value = "";
+    //     }
         
 
-        setNewRoom({...newRoom, [name]:value})
-    } 
+    //     setNewRoom({...newRoom, [name]:value})
+    // } 
 
-    const handleImageChange = (e) =>{
-        const selectedImage = e.target.files[0]
 
-        setNewRoom({...newRoom, photo: selectedImage})
-        setImagePriview(URL.createObjectURL(selectedImage))
-    }
+    const handleRoomInputChange = (e) => {
+        const name = e.target.name;
+        let value = e.target.value;
+        if(name === "roomType"){
+            value = e.target.value;
+        }
+        else if (name === "roomPrice" && !isNaN(value)) {
+          console.log("Value:" + value);
+          value = parseInt(value,10);
+        } else {
+          value = '';
+        }
+      
+        setNewRoom((prevRoom) => ({
+          ...prevRoom,
+          [name]: value,
+        }));
+      };
+
+      
+      // ...
+      
+      <RoomTypeSelector handleRoomInputChange={handleRoomInputChange} newRoom={newRoom.roomType} />
+      
+
+      const handleImageChange = (e) => {
+        const selectedImage = e.target.files[0];
+      
+        setNewRoom((prevRoom) => ({
+          ...prevRoom,
+          photo: selectedImage,
+        }));
+      
+        setImagePriview(URL.createObjectURL(selectedImage));
+      };
+      
 
 
     const handleSubmit = async (e) =>{
@@ -47,8 +78,8 @@ export const AddRoom = () => {
                 setSuccessMessage("A new room was added to the database")
                 setNewRoom({ 
                                 photo: null, 
-                                roomType:"",
-                                roomPrice:""
+                                roomType:'',
+                                roomPrice:''
                             })
                 setImagePriview("")
                 setErrorMessage("")
@@ -74,7 +105,7 @@ export const AddRoom = () => {
                             <label htmlFor="roomType" className="form-label">
                                 Room Type
                             </label>
-                            <RoomTypeSelector handleRoomInputChange={handleRoomInputChange} newRoom={newRoom}/>
+                            <RoomTypeSelector handleRoomInputChange={handleRoomInputChange} newRoom={newRoom.roomType}/>
                         </div>
 
                         <div className="mb-3">
@@ -87,7 +118,7 @@ export const AddRoom = () => {
                                     required
                                     id="roomPrice"
                                     name="roomPrice"
-                                    value={newRoom.roomPrice}
+                                    value={newRoom.roomPrice || ''}
                                     onChange={handleRoomInputChange}>
 
                            </input>
@@ -103,9 +134,7 @@ export const AddRoom = () => {
                                     required
                                     id="photo"
                                     name="photo"
-                                    value={newRoom.roomPrice}
-                                    onChange={handleImageChange} />
-                            
+                                    onChange={handleImageChange} />             
                             {
                                 imagePreview && (
                                     <img src={imagePreview} alt="Preview Room Photo" style={{maxWidth:"400px",maxHeight:"400px"}}
