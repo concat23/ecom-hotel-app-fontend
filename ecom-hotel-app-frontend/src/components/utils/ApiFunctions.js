@@ -41,5 +41,15 @@ export async function getAllRooms(){
     }
 }
 
-export async function deleteDrop(){}
-export async function deleteUpdateBackupAndRestore(){}
+export async function deleteDropRoom(id){
+        try{
+            const result = await api.delete(`/api/rooms/delete/room/${id}`);
+            return result.data
+        }catch(error){
+            throw new Error(`Error, Deleting room ${error.message}`)
+        }
+}
+
+export async function deleteUpdateBackupAndRestoreRoom(){
+
+}

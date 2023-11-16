@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { getAllRooms } from "../utils/ApiFunctions";
+import { getAllRooms, deleteDropRoom } from "../utils/ApiFunctions";
 import { RoomFilter } from "../common/RoomFilter";
 import { RoomPaginator } from "../common/RoomPaginator";
 import "../room/style.css";
 import { Col } from "../column/Col";
 import { Btn } from "../button/Btn";
+import { FaEdit, FaEye, FaTrashAlt } from "react-icons/fa"
+import { Link } from "react-router-dom";
+
+
+
 
 export const ExistingRoom = () => {
   const [rooms, setRooms] = useState([]);
@@ -60,6 +65,24 @@ export const ExistingRoom = () => {
     setCurrentPage(pageNumber);
   };
 
+
+  const handleDeleteDrop = async(id) =>{
+    try{
+      const result = await deleteDropRoom(id)
+      if(result === ""){
+          setSuccessMessage(`Room No ${id} was delete`)
+          fetchRooms()
+      }
+    }catch(error){
+      setErrorMessage(error.message)
+    }
+
+    setTimeout(()=>{
+      setSuccessMessage("")
+      setErrorMessage("")
+    },3000)
+  }
+
   return (
     <>
       {isLoading ? (
@@ -90,9 +113,18 @@ export const ExistingRoom = () => {
                       <td>{room.id}</td>
                       <td>{room.roomType}</td>
                       <td>{room.roomPrice}</td>
-                      <td>
-                        <button className="btn-vw-edt">View / Edit</button>
-                        <button className="btn-del">Delete</button>
+                      <td className="group-features">
+                        <Link to={`/edit-room/${room.id}`} className="btn-vw-edt">
+                          <span className="btn">
+                            <FaEye />
+                          </span>
+                          <span className="btn">
+                             <FaEdit />
+                          </span>
+                        </Link>
+                        <button className="btn-del" onClick={() => handleDeleteDrop(room.id)}>
+                            <FaTrashAlt />
+                        </button>
                       </td>
                     </tr>
                   ))}
