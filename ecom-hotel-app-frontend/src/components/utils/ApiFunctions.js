@@ -31,3 +31,12 @@ export async function getRoomTypes(){
         throw new Error("Error fetching room types")
     }
 }
+
+export async function getAllRooms(){
+    try{
+        const resultList = await api.get("/api/rooms/all-rooms")
+        return resultList.data
+    }catch(error){
+        throw new Error("Error fetching rooms")
+    }
+}
