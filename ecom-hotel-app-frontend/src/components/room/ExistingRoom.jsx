@@ -5,6 +5,7 @@ import { RoomFilter } from "../common/RoomFilter";
 import { RoomPaginator } from "../common/RoomPaginator";
 import "../room/style.css";
 import { Col } from "../column/Col";
+import { Btn } from "../button/Btn";
 
 export const ExistingRoom = () => {
   const [rooms, setRooms] = useState([]);

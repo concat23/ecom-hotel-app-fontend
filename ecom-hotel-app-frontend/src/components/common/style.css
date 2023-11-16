@@ -76,8 +76,13 @@
 
 /* Custom CSS for RoomPaginator component */
 
+/* Updated CSS for RoomPaginator component */
+
+/* Updated CSS for RoomPaginator component */
+
 nav {
-  margin-top: 1.5rem;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .paginator {
@@ -98,14 +103,16 @@ nav {
   padding: 0.5rem 0.75rem;
   text-decoration: none;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 .page-link:hover {
   background-color: #007bff;
   color: #fff;
   border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .page-item.active .page-link {

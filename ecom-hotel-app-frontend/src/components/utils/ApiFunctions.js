@@ -40,3 +40,6 @@ export async function getAllRooms(){
         throw new Error("Error fetching rooms")
     }
 }
+
+export async function deleteDrop(){}
+export async function deleteUpdateBackupAndRestore(){}
