@@ -50,6 +50,11 @@ export async function deleteDropRoom(id){
         }
 }
 
-export async function deleteUpdateBackupAndRestoreRoom(){
-
+export async function deleteUpdateBackupAndRestoreRoom(id){
+    try{
+        const result = await api.delete(`/api/rooms/backup-restore/room/${id}`);
+        return result.data
+    }catch(error){
+        throw new Error(`Error, Backup restoring room ${error.message}`)
+    }
 }

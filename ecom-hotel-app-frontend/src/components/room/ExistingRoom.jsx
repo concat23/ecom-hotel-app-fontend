@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { getAllRooms, deleteDropRoom } from "../utils/ApiFunctions";
+import { getAllRooms, deleteDropRoom, deleteUpdateBackupAndRestoreRoom } from "../utils/ApiFunctions";
 import { RoomFilter } from "../common/RoomFilter";
 import { RoomPaginator } from "../common/RoomPaginator";
 import "../room/style.css";
 import { Col } from "../column/Col";
 import { Btn } from "../button/Btn";
-import { FaEdit, FaEye, FaTrashAlt } from "react-icons/fa"
+import { FaEdit, FaEye, FaTrashAlt, FaTrashRestore } from "react-icons/fa"
 import { Link } from "react-router-dom";
 
 
@@ -83,6 +83,24 @@ export const ExistingRoom = () => {
     },3000)
   }
 
+
+  const handleDeleteBackupRestore = async(id) =>{
+    try{
+      const result = await deleteUpdateBackupAndRestoreRoom(id)
+      if(result === ""){
+          setSuccessMessage(`Room No ${id} was update restore`)
+          fetchRooms()
+      }
+    }catch(error){
+      setErrorMessage(error.message)
+    }
+
+    setTimeout(()=>{
+      setSuccessMessage("")
+      setErrorMessage("")
+    },3000)
+  }
+
   return (
     <>
       {isLoading ? (
@@ -124,6 +142,9 @@ export const ExistingRoom = () => {
                         </Link>
                         <button className="btn-del" onClick={() => handleDeleteDrop(room.id)}>
                             <FaTrashAlt />
+                        </button>
+                        <button className="btn-del" style={{display: 'none' }} onClick={() => handleDeleteBackupRestore(room.id)}>
+                            <FaTrashRestore />
                         </button>
                       </td>
                     </tr>
