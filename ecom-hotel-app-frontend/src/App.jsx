@@ -9,11 +9,10 @@ function App() {
   return (   
       <>
       <main> 
-
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/edit-room/:roomId" element={<EditRoom />} />
+            <Route path="/edit-room/:id" element={<EditRoom />} />
             <Route path="/existing-rooms" element={<ExistingRoom />} />
           </Routes>
         </Router>
