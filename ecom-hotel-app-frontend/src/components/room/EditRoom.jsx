@@ -3,6 +3,7 @@ import { useState } from "react";
 import { getRoomById } from '../utils/ApiFunctions';
 import RoomTypeSelector from '../common/RoomTypeSelector'
 import {Link, useParams} from 'react-router-dom'
+import { updateRoom } from "../utils/ApiFunctions";
 export const EditRoom = () => {
   const[room, setRoom] = useState({
     roomType : '',
@@ -16,12 +17,16 @@ const[successMessage, setSuccessMessage] = useState("")
 const[errorMessage, setErrorMessage] = useState("")
 const { id } = useParams()
 
-  const handleImageChange = (e) => {
-        const selectedImage = e.target.files[0];
-      
-        setRoom({...room, photo: selectedImage })
-        setImagePreview(URL.createObjectURL(selectedImage));
-      };
+const handleImageChange = (e) => {
+  const selectedImage = e.target.files && e.target.files.length > 0 ? e.target.files[0] : null;
+
+  if (selectedImage) {
+    setRoom({ ...room, photo: selectedImage });
+    setImagePreview(URL.createObjectURL(selectedImage));
+  } else {
+    console.error("No file selected");
+  }
+};
 
 const handleRoomInputChange = (e) => {
     const {name, value} = e.target
@@ -48,11 +53,12 @@ const handleRoomInputChange = (e) => {
     e.preventDefault()
 
     try{
-        const response = await updateRoom(id, roomData)
+        const response = await updateRoom(id, room)
 
-        if(response.statues === 200){
+        if(response.status === 200){
             setSuccessMessage("Room updated successfully.")
-            const updatedRoomData = await getRoomById(roomId)
+            const updatedRoomData = await getRoomById(id)
+            console.log(updatedRoomData)
             setRoom(updatedRoomData)
             setImagePreview(updatedRoomData.photo)
             setErrorMessage("")
@@ -100,7 +106,7 @@ const handleRoomInputChange = (e) => {
                             <label htmlFor="roomType" className="form-label">
                                 Room Type
                             </label>
-                            <input type="text" className="form-control" id="roomType" name="roomType" value={room.roomType} onChange={handleImageChange} />
+                            <input type="text" className="form-control" id="roomType" name="roomType" value={room.roomType} onChange={handleRoomInputChange} />
                         </div>
 
                         <div className="mb-3">
