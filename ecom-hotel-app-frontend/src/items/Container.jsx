@@ -7,6 +7,7 @@ const containerStyles = {
   background: '#f7f7f7', // Set a light background color
   boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', // Add a subtle box shadow
   borderRadius: '8px', // Add rounded corners
+  marginTop:"100px",
 };
 
 export const Container = ({ children }) => {
