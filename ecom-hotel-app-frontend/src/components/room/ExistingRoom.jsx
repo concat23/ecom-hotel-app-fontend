@@ -5,8 +5,9 @@ import { RoomFilter } from "../common/RoomFilter";
 import { RoomPaginator } from "../common/RoomPaginator";
 import "../room/style.css";
 import { Col } from "../column/Col";
+import { Row } from "../column/Row";
 import { Btn } from "../button/Btn";
-import { FaEdit, FaEye, FaTrashAlt, FaTrashRestore } from "react-icons/fa"
+import { FaEdit, FaEye, FaFlushed, FaPlus, FaTrashAlt, FaTrashRestore } from "react-icons/fa"
 import { Link } from "react-router-dom";
 
 
@@ -112,10 +113,18 @@ export const ExistingRoom = () => {
               <div className="d-flex justify-content-center mb-3 mt-5">
                 <h2>Existing rooms</h2>
               </div>
-              <Col md={6} className="mb-3 md-md-0">
-                <RoomFilter data={rooms} setFilteredData={setFilteredRooms} />
-              </Col>
 
+              <Row>
+                <Col md={6} className="mb-3 md-md-0">
+                    <Link to={"/add-room"} className="link-add-room">
+                      <FaPlus className="icon-add-room" /> Add room
+                    </Link>
+                  </Col>
+                  <Col md={6} className="mb-3 md-md-0">
+                      <RoomFilter data={rooms} setFilteredData={setFilteredRooms} />
+                </Col>
+              </Row>
+          
               <table className="table table-bordered table-hover">
                 <thead>
                   <tr className="text-center">

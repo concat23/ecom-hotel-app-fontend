@@ -194,3 +194,14 @@ form {
 }
 
 /* Add any additional styling as needed */
+
+
+.link-add-room{
+  display: flex;
+  justify-content: right;
+  text-decoration: none;
+  list-style: none;
+}
+.icon-add-room{
+  margin-right: 5px;
+}
