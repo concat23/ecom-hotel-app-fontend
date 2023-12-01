@@ -24,7 +24,7 @@ export const RoomFilter = ({data, setFilteredData}) => {
     <div className='input-group mb-3'>
         <span className='input-group-text' id="room-type-filter">Filter room by type</span>
         <select name="" id="" value={filter} onChange={handleSelectChange} className='form-select' >
-            <option value={""}>Select a room type to filter ...</option>
+            <option value={""}>Select a room type to filter ...</option>     
             {   roomTypes.map( (type,index) =>(
                     <option key={index} value={String(type)}> {String(type)} </option>
                 )) 

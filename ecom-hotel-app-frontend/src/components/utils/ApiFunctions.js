@@ -42,14 +42,41 @@ export async function getAllRooms(){
 }
 
 export async function deleteDropRoom(id){
-        try{
-            const result = await api.delete(`/api/rooms/delete/room/${id}`);
-            return result.data
-        }catch(error){
-            throw new Error(`Error, Deleting room ${error.message}`)
-        }
+    try{
+        const result = await api.delete(`/api/rooms/delete/room/${id}`);
+        return result.data
+    }catch(error){
+        throw new Error(`Error, Deleting room ${error.message}`)
+    }
 }
 
-export async function deleteUpdateBackupAndRestoreRoom(){
+export async function deleteUpdateBackupAndRestoreRoom(id){
+    try{
+        const result = await api.delete(`/api/rooms/backup-restore/room/${id}`);
+        return result.data
+    }catch(error){
+        throw new Error(`Error, Backup restoring room ${error.message}`)
+    }
+}
 
+export async function updateRoom(id, roomData ){
+    const formData = new FormData()
+
+    formData.append("roomType",roomData.roomType)
+    formData.append("roomPrice",roomData.roomPrice)
+    formData.append("photo",roomData.photo)
+
+    const response = await api.put(`/api/rooms/update/${id}`,formData)
+
+    return response
+    
+}
+
+export async function getRoomById(id){
+    try{
+        const result = await api.get(`/api/rooms/room/${id}`)
+        return result.data
+    }catch(error){
+        throw new Error(`Error fetching room ${error.message}`)
+    }
 }

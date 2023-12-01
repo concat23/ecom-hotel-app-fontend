@@ -1,0 +1,279 @@
+/* style.css */
+
+/* Navbar Container */
+.navbar-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin:0;
+    background-color: #fff; /* Set background color to white */
+    z-index: 1000; 
+}  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+/* Logo */
+.logo-link {
+    text-decoration: none;
+    color: #333; /* Darken text color */
+    font-size: 1.8em;
+    font-weight: bold;
+    transition: color 0.3s; /* Add color transition */
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+}
+
+/* Navbar Toggle Button */
+.navbar-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333; /* Darken text color */
+    font-size: 1.5em;
+    transition: color 0.3s; /* Add color transition */
+    display: none; /* Hide by default on larger screens */
+}
+
+/* Main Links */
+.main-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333; /* Darken text color */
+    margin: 0 20px;
+    font-size: 1.2em;
+    position: relative;
+    transition: color 0.3s, border-bottom 0.3s; /* Add color and border-bottom transition */
+}
+
+.nav-link:hover {
+    color: #3498db; /* Change text color on hover */
+    border-bottom: 2px solid #3498db; /* Add underline on hover */
+}
+
+/* User Links */
+.user-links {
+    list-style: none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.user-dropdown {
+    position: relative;
+    transform: translate(-18px, 0);
+}
+
+.user-dropdown-toggle {
+    cursor: pointer;
+    color: #333; /* Darken text color */
+    font-size: 1.5em;
+    transition: color 0.3s; /* Add color transition */
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: -87px;
+    background-color: #fff; /* Set background color to white */
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    display: none;
+    justify-content: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 120px;
+}
+
+.dropdown-menu li {
+    margin: 10px 5px;
+    display:flex;
+}
+
+.dropdown-link {
+    text-decoration: none;
+    color: #333; /* Darken text color */
+    font-size: 1em;
+    transition: color 0.3s; /* Add color transition */
+}
+
+.dropdown-link:hover {
+    color: #3498db; /* Change text color on hover */
+}
+
+/* Show Dropdown on Hover */
+.user-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Responsive styles for mobile */
+/* Responsive styles for mobile */
+@media only screen and (max-width: 768px) {
+    .navbar-links {
+        /* Remove display: none */
+    }
+
+    .navbar-toggle-btn {
+        display: block; /* Show toggle button on smaller screens */
+    }
+
+    .main-links,
+    .user-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 70px; /* Adjust the distance from the top */
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-link,
+    .user-dropdown-toggle {
+        margin: 10px 0;
+    }
+
+    .nav-link:hover {
+        border-bottom: none; /* Remove underline on hover for better mobile experience */
+    }
+}
+
+
+/* ================= LOGO =================== */
+
+/* Base styles for the logo */
+.logo-link {
+    text-decoration: none;
+    color: #333; /* Change the color to your preference */
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px; /* Perspective for 3D effect */
+  }
+  
+  .logo-text {
+    font-size: 1.25em; /* Adjust the font size to your preference */
+    font-weight: bold;
+    margin-left: 10px; /* Adjust the spacing between text and shapes */
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
+  }
+  
+  /* Circle styles for the ::before and ::after pseudo-elements */
+  .logo-link::before,
+  .logo-link::after {
+    content: '';
+    width: 20px; /* Adjust the size of the circle */
+    height: 20px; /* Adjust the size of the circle */
+    border-radius: 50%;
+    background-color: #ff4500; /* Adjust the background color to your preference */
+    margin-right: 10px; /* Adjust the spacing between circles and text */
+    transition: transform 0.3s ease-out, background-color 0.3s ease-out;
+    animation: bounce 1s infinite alternate; /* Bounce animation */
+  }
+  
+  /* Initial position for the ::before and ::after pseudo-elements */
+  .logo-link::before {
+    transform: translateX(-50%);
+  }
+  
+  .logo-link::after {
+    transform: translateX(50%);
+  }
+  
+  /* Hover effect for the ::before and ::after pseudo-elements */
+  .logo-link:hover::before,
+  .logo-link:hover::after {
+    transform: translateY(-50%);
+    background-color: #4CAF50; /* Adjust the background color on hover */
+  }
+  
+  /* Styles for the :focus state */
+  .logo-link:focus {
+    outline: none; /* Remove the default focus outline */
+  }
+  
+  .logo-link:focus::before,
+  .logo-link:focus::after {
+    transform: translateY(-50%);
+    background-color: #4CAF50; /* Adjust the background color on focus */
+  }
+  
+  /* Keyframes for bounce animation */
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* Additional styles for a more dynamic appearance */
+  .logo-link::before,
+  .logo-link::after {
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.7); /* Add a subtle shadow */
+  }
+  
+  .logo-link::before {
+    animation-delay: 0.2s; /* Add a delay to the bounce animation for a staggered effect */
+  }
+  
+  .logo-link::after {
+    animation-delay: 0.4s; /* Add a delay to the bounce animation for a staggered effect */
+  }
+  
+  /* Rotate and scale the entire logo on hover or focus */
+  .logo-link:hover {
+    transform: rotate(5deg) scale(1.1);
+  }
+  
+  .logo-link:focus {
+    transform: rotate(5deg) scale(1.1);
+  }
+  
+  /* 3D flip effect on click */
+  .logo-link:active {
+    transform: rotateY(180deg);
+  }
+  
+  /* Rotate the text for a dynamic feel */
+  .logo-link:hover .logo-text {
+    transform: rotate(-5deg);
+  }
+
+  /* ============================= Footer ============================== */
+
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;  
+    padding: 10px 0;
+  }
+  
+  
+  
