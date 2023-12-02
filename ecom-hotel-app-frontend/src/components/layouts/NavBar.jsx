@@ -38,7 +38,7 @@ export const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin" className="nav-link" aria-current="page">
+            <NavLink to="/administrator" className="nav-link" aria-current="page">
               Admin
             </NavLink>
           </li>

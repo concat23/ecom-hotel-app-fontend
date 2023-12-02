@@ -2,7 +2,10 @@ import React from 'react'
 import '../home/style.css'
 import { useLocation } from 'react-router-dom';
 import Clock from '../Clock/Clock';
-
+import { MainHeader } from '../layouts/MainHeader';
+import { HotelService } from '../common/HotelService';
+import { Parallax } from '../common/Parallax';
+import { Content } from '../layouts/Content';
  
 
 export const Home = () => {
@@ -12,12 +15,17 @@ export const Home = () => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <div>
-        <h2 className='title'>Home Page</h2>
-        <div>
-          {isHomePage && <Clock />}
-          {/* Your other home page content goes here */}
-        </div>
-    </div>
-  )
-}
+    <section className="home-section">
+      <MainHeader />
+      <div className="clock-container">
+        {isHomePage && <Clock />}
+      </div>
+      <section className="content-section">
+        <Content location={location} />
+        <Parallax />
+        <HotelService />
+        <Parallax />
+      </section>
+    </section>
+  );
+};
