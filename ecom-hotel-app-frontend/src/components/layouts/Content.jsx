@@ -5,7 +5,7 @@ export const Content = () => {
   const location = useLocation();
 
   const sectionStyle = {
-    height: '100vh', // Adjust the height as needed
+    height: '30vh', // Adjust the height as needed
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
