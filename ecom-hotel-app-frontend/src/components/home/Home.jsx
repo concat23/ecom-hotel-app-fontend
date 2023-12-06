@@ -6,6 +6,7 @@ import { MainHeader } from '../layouts/MainHeader';
 import { HotelService } from '../common/HotelService';
 import { Parallax } from '../common/Parallax';
 import { Content } from '../layouts/Content';
+import { RoomCarousel } from '../room/RoomCarousel';
  
 
 export const Home = () => {
@@ -22,9 +23,11 @@ export const Home = () => {
       </div>
       <section className="content-section">
         <Content location={location} />
+        <RoomCarousel />
         <Parallax />
         <HotelService />
         <Parallax />
+        <RoomCarousel />
       </section>
     </section>
   );

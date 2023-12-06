@@ -4,23 +4,23 @@ import { FaDollarSign, FaMoneyBillAlt, FaMoneyBillWave, FaQuinscape, FaTicketAlt
 export const BaseCard = ({ image, title, body, roomType, roomPrice, onBookNowClick, footer, item, text }) => {
 
   return (
-      <div className="card">
-          <div className="card-image">
+      <div className="card-base">
+          <div className="card-imag-base">
               <img src={image} alt="Room" />
           </div>
-          <div className="card-content">
-              <div className="card-header">
-                  <h3 className="card-title">{title}</h3>
+          <div className="card-content-base">
+              <div className="card-header-base">
+                  <h3 className="card-title-base">{title}</h3>
                   {item && <span className="card-icon">{item}</span>}
               </div>
-              {body && <p className="card-description">{body}</p>}
-              <div className='card-text'>{text}</div>
-              <div className="card-details">
-                  {roomPrice && <p className="card-price">{roomPrice}<FaDollarSign /> / night</p>}
-                  {roomType && <p className="card-room-type"><FaQuinscape /> {roomType}</p>}
+              {body && <p className="card-description-base">{body}</p>}
+              <div className='card-text-base'>{text}</div>
+              <div className="card-details-base">
+                  {roomPrice && <p className="card-price-base">{roomPrice}<FaDollarSign /> / night</p>}
+                  {roomType && <p className="card-room-type-base"><FaQuinscape /> {roomType}</p>}
               </div>
               {onBookNowClick && <button className="book-now-btn" onClick={onBookNowClick}>Booking Now</button>}
-              {footer && <div className="card-footer">{footer}</div>}
+              {footer && <div className="card-footer-base">{footer}</div>}
           </div>
       </div>
   );

@@ -9,16 +9,13 @@
   
   /* Styles for the clock container */
   .clock-container {
-    margin-top: 20px;
-    font-size: 2rem;
+    position: absolute;
+    top: 25%;
+    right: 10%;
     color: #333;
   }
   
   /* Styles for the content section */
-  .content-section {
-    padding: 20px;
-    background-color: #f8f8f8;
-  }
   
   /* Add more styles based on your design */
   

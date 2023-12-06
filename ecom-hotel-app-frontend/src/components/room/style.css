@@ -128,6 +128,7 @@ form {
 }
 
 .text-center {
+  text-transform: uppercase;
   text-align: center;
 }
 
@@ -281,4 +282,43 @@ form {
   font-size: 0.875rem;
   color: #777;
 }
+
+/* =========== Room Carousel ============ */
+/* Loading Message Styling */
+.loading-message {
+  margin-top: 5em; 
+  text-align: center; 
+  font-size: 1.2em; 
+  color: #3498db;
+}
+
+/* Error Message Styling */
+.error-message {
+  margin-top: 5em;
+  text-align: center;
+  font-size: 1.2em;
+  color: #e74c3c;
+}
+
+/* ============= Browse Link ============== */
+
+.browse-link {
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 10px 20px;
+  color: #3498db; /* Default text color */
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: color 0.3s ease, transform 0.3s ease; /* Transition color and transform */
+  position: relative;
+}
+
+.browse-link:hover {
+  color: #2c3e50; /* Change text color on hover */
+  text-decoration: underline; /* Add underline on hover */
+}
+
 

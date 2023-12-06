@@ -4,10 +4,9 @@ const customRowStyles = {
   display: 'grid',
   gridTemplateColumns: '1fr 1fr 1fr',
   gap: '20px',
+  border: '.5px solid #9e9e9e',
   padding: '15px',
-  border: '2px solid rgb(5 5 5 / 22%)',
   borderRadius: '8px',
-  backgroundColor: '#f2f2f2',
   marginBottom: '15px',
 };
 

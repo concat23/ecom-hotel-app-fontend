@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { RoomCard } from './RoomCard'
 import { Container } from '../../items/Container'
-import { Row } from '../column/Row'
 import { Col } from '../column/Col'
+import { RowStyle } from '../column/RowStyle'
+import { Row } from '../column/Row'
 import { RoomFilter } from '../common/RoomFilter'
 import { RoomPaginator } from '../common/RoomPaginator'
 import { getAllRooms } from '../utils/ApiFunctions'
@@ -52,22 +53,22 @@ export const Room = () => {
 
   return (
     <Container>
-        <Row>
-            <Col md={6}>
-                <RoomFilter data={data} setFilteredData={setFilteredData} />
-            </Col>
-            <Col md={6}>
-                <RoomPaginator currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}  />
-            </Col>
-        </Row>
-        <Row>
-            { renderRooms() }
-        </Row>
-        <Row>
-            <Col md={6}>
-                <RoomPaginator currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}  />
-            </Col>
-        </Row>
+            <Row>
+                <Col md={6}>
+                    <RoomFilter data={data} setFilteredData={setFilteredData} />
+                </Col>
+                <Col md={6}>
+                    <RoomPaginator currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}  />
+                </Col>
+            </Row>
+            <Row>
+                { renderRooms() }
+            </Row>
+            <Row>
+                <Col md={6}>
+                    <RoomPaginator currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}  />
+                </Col>
+            </Row>
     </Container>
   )
 }
