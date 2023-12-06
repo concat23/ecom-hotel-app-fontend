@@ -15,15 +15,14 @@ export const HotelService = () => {
       <>
         <Container>
           <Header title={'Our Service'} />
-  
-          <Row>
-            <h4 className="text-center">
+          <div>
+          <h4 className="text-center">
               Service at <span className="hotel-color">Ecom Hotel</span>
               <span className="gap-2">
                 <FaClock /> - 24-Hour Front Desk
               </span>
             </h4>
-          </Row>
+          </div>
           <hr />
   
           <Row xs={1} md={2} lg={3} className="HotelServiceRow">

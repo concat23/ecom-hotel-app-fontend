@@ -1,163 +1,229 @@
-/* ===================== Base Card ================ */
-/* style.css */
-.card {
-  display: flex;
-  border: 1px solid #e1e1e1;
-  border-radius: 12px;
+/* ============== Base Card ============ */
+/* customStyles.css */
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Three columns with a minimum width of 300px */
+  grid-gap: 20px; /* Adjust the gap between cards */
+}
+
+.card-base {
+  flex: 0 0 calc(33.33% - 20px); /* Three columns with some margin */
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
   background-color: #fff;
+  position: relative;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.card-base:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-.card-image {
-  width: 200px; /* Adjust the width as needed */
-  overflow: hidden;
-  border-radius: 12px 0 0 12px;
-}
-
-.card-image img {
+.card-imag-base img {
   width: 100%;
-  height: 100%;
+  height: 200px; /* Adjust the height of the image */
   object-fit: cover;
-  border-radius: 12px 0 0 12px;
+  border-bottom: 1px solid #ddd;
 }
 
-.card-content {
-  flex-grow: 1;
+.card-content-base {
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.card-title {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.card-description {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 15px;
-  text-align: justify;
-}
-
-.card-text {
-  font-size: 1rem;
-  color: #777;
-  margin-bottom: 15px;
-}
-
-.card-details {
+.card-header-base {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.card-price {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #e44d26; /* Orange color for price */
-}
-
-.book-now-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    background-color: #3498db;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    width: 200px;
-}
-
-.book-now-btn:hover {
-  background-color: #2980b9;
-}
-
-.card-footer {
-  margin-top: 15px;
-  font-size: 1rem;
-  color: #777;
-}
-
-  
-
-/* ============ Room service card ============ */
-.room-service-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 20px;
-  justify-content: center;
-}
-
-.room-service-card {
-  position: relative;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease-in-out;
-}
-
-.room-service-card:hover {
-  transform: scale(1.05);
-}
-
-.card-image {
-  position: relative;
-  width: 100%;
-  height: 150px;
-  overflow: hidden;
-  border-radius: 10px 10px 0 0;
-}
-
-.image-room-service {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
-  transition: transform 0.3s ease-in-out, background-position 0.3s ease-in-out;
-}
-
-.room-service-card:hover .image-room-service {
-  transform: scale(1.1);
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 1) 50%);
-  background-size: 200% 100%;
-  background-position: 200% 0;
-}
-
-.card-content {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: background 0.3s ease-in-out;
-}
-
-.room-service-card:hover .card-content {
-  background: rgba(255, 255, 255, 0.9); /* Adjust opacity or color as needed */
-}
-
-.service-title,
-.service-item {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+.card-title-base {
+  margin: 0;
+  font-size: 1.2em;
   color: #333;
 }
 
-.service-text {
-  font-size: 1rem;
+.card-icon {
+  font-size: 1.5em;
+  margin-left: 8px;
   color: #555;
-  margin-bottom: 15px;
 }
+
+.card-description-base {
+  margin-top: 10px;
+  color: #777;
+}
+
+.card-text-base {
+  color: #555;
+  font-style: italic;
+}
+
+.card-details-base {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.card-price-base {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #007bff;
+}
+
+.card-room-type-base {
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+
+.book-now-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+.book-now-btn:hover {
+  background-color: #0056b3;
+}
+
+.card-footer-base {
+  margin-top: 15px;
+  color: #888;
+  font-size: 0.9em;
+}
+
+/* ============= Card Body ============ */
+
+.card-body-custom {
+  padding: 16px; /* Add padding to the card body */
+  border-top: 1px solid #ddd; /* Add a border at the top of the card body */
+}
+
+/* ============= Card Content ========== */
+
+/* cardContentStyles.css */
+
+.card-content-custom {
+  /* Add styles specific to the card content */
+  padding: 16px; /* Add padding to the card content */
+}
+
+.price-custom {
+  font-size: 1.5em; /* Adjust the font size of the price */
+  margin-bottom: 8px; /* Add space below the price */
+  color: #007bff; /* Set the color for the price */
+}
+
+.description-custom {
+  margin-top: 0; /* Remove default margin for the description */
+  color: #555; /* Set the color for the description */
+}
+
+/* Add more styles as needed */
+
+
+/* ============ Card Image ============= */
+
+/* cardImageStyles.css */
+
+.card-image-custom {
+  /* Add styles specific to the card image container */
+  overflow: hidden; /* Hide overflowing content in the image container */
+  border-bottom: 1px solid #ddd; /* Add a border at the bottom of the image container */
+}
+
+.card-image-custom img {
+  width: 100%; /* Make the image fill its container */
+  display: block; /* Remove extra space beneath the image */
+}
+
+/* Add more styles as needed */
+
+
+/* =========== Card Title ======== */
+
+
+/* cardTitleStyles.css */
+
+.card-title-custom {
+  /* Add styles specific to the card title container */
+  margin-bottom: 8px; /* Add space below the title */
+}
+
+.card-title-custom h2 {
+  margin: 0; /* Remove default margin for the title */
+  font-size: 1.5em; /* Adjust the font size of the title */
+  color: #333; /* Set the color for the title */
+}
+
+/* Add more styles as needed */
+
+
+/* ========= Card Room Service  =========== */
+
+/* roomServiceCardStyles.css */
+
+.room-service-cards-custom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.room-service-custom {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; /* Smooth transition for the shadow */
+}
+
+.room-service-custom:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.card-image-custom img {
+  width: 100%;
+  height: 200px; /* Set a fixed height for the image */
+  object-fit: cover; /* Maintain aspect ratio while covering the container */
+  border-bottom: 1px solid #ddd;
+  transition: transform 0.3s ease; /* Smooth transition for scaling on hover */
+}
+
+.room-service-custom:hover .card-image-custom img {
+  transform: scale(1.1); /* Scale up the image on hover */
+}
+
+.card-content-custom {
+  padding: 16px;
+}
+
+.service-item-custom,
+.service-title-custom {
+  margin: 0;
+}
+
+.service-item-custom {
+  font-weight: bold;
+  color: #007bff; /* Set color for service item text */
+}
+
+.service-text-custom {
+  margin-top: 8px;
+  color: #555;
+}
+
+.service-title-custom {
+  font-size: 1.2em; /* Adjust the font size of the service title */
+}
+
+/* Add more styles as needed */

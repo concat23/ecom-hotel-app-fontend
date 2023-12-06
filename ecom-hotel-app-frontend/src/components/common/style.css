@@ -11,6 +11,7 @@
   text-align: center;
   display: flex;
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .overlay {
@@ -91,10 +92,15 @@
 /* Custom CSS for RoomFilter component */
 
 .input-group {
+  display:flex;
+  min-width:30rem;
   margin-bottom: 1.5rem;
 }
 
 .input-group-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #040404;
   border: none;
 }
@@ -210,3 +216,47 @@ nav {
 
 /* ====================== Hotel Service ============= */
 
+/* Reset các giả mục đích và padding mặc định cho h4 */
+/* Reset margin và padding mặc định cho toàn bộ trang */
+/* Reset margin và padding mặc định cho toàn bộ trang */
+body {
+  font-family: 'Arial', sans-serif; /* Sử dụng font chữ thay thế nếu font chữ ưa thích không khả dụng */
+  line-height: 1.6; /* Điều chỉnh độ dài dòng */
+  color: #333; /* Màu chữ mặc định */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px; /* Tạo ra một khoảng trắng nhỏ xung quanh nội dung */
+}
+
+h4 {
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 1em;
+}
+
+.hotel-color {
+  color: #3498db;
+  font-weight: bold;
+}
+
+.fa-clock {
+  margin-right: 0.3em;
+  color: #2ecc71;
+  font-size: 1.2em;
+}
+
+/* Stylize the hr element */
+hr {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(to right, #3498db, #2ecc71); /* Sử dụng gradient cho đường ngăn cách */
+  margin: 2em 0;
+}
+
+/* Optional: Add some shadow to the container for depth */
+.container {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}

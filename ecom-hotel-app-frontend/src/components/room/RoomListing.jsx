@@ -2,7 +2,6 @@ import React from 'react'
 import { Room } from './Room'
 const sectionStyle = {
   position: 'relative',
-  float: 'right',
 };
 export const RoomListing = () => {
   return (
