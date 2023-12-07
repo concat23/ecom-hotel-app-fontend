@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { getAllRooms } from '../utils/ApiFunctions';
+import { getAllRooms } from '../../utils/ApiFunctions';
 import '../room/style.css';
 import { Link } from 'react-router-dom';
-import { Container } from '../../items/Container';
-import CarouselStyle from '../carousel/CarouselStyle';
+import { Container } from '../../../items/Container';
+import CarouselStyle from '../../carousel/CarouselStyle';
 
 export const RoomCarousel = () => {
 

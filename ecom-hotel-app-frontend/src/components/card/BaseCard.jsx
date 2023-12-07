@@ -1,12 +1,15 @@
 import React from 'react'
 import '../card/style.css'
 import { FaDollarSign, FaMoneyBillAlt, FaMoneyBillWave, FaQuinscape, FaTicketAlt, FaWifi } from 'react-icons/fa';
-export const BaseCard = ({ image, title, body, roomType, roomPrice, onBookNowClick, footer, item, text }) => {
+import { Link } from 'react-router-dom';
+export const BaseCard = ({ id,image, title, body, roomType, roomPrice, onBookNowClick, footer, item, text }) => {
 
   return (
       <div className="card-base">
           <div className="card-imag-base">
-              <img src={image} alt="Room" />
+                <Link to={`/booking-room/${id}`}>
+                <img src={image} alt="Room" />
+                </Link>
           </div>
           <div className="card-content-base">
               <div className="card-header-base">
@@ -19,7 +22,7 @@ export const BaseCard = ({ image, title, body, roomType, roomPrice, onBookNowCli
                   {roomPrice && <p className="card-price-base">{roomPrice}<FaDollarSign /> / night</p>}
                   {roomType && <p className="card-room-type-base"><FaQuinscape /> {roomType}</p>}
               </div>
-              {onBookNowClick && <button className="book-now-btn" onClick={onBookNowClick}>Booking Now</button>}
+              {onBookNowClick && <button className="book-now-btn" onClick={onBookNowClick}><Link to={`/booking-room/${id}`}>Booking Now</Link></button>}
               {footer && <div className="card-footer-base">{footer}</div>}
           </div>
       </div>

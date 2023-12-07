@@ -1,11 +1,11 @@
 import React from 'react'
-import '../home/style.css'
+import './style.css'
 import { useLocation } from 'react-router-dom';
-import Clock from '../Clock/Clock';
-import { MainHeader } from '../layouts/MainHeader';
-import { HotelService } from '../common/HotelService';
-import { Parallax } from '../common/Parallax';
-import { Content } from '../layouts/Content';
+import Clock from '../../Clock/Clock';
+import { MainHeader } from '../../layouts/MainHeader';
+import { HotelService } from '../../common/HotelService';
+import { Parallax } from '../../common/Parallax';
+import { Content } from '../../layouts/Content';
 import { RoomCarousel } from '../room/RoomCarousel';
  
 

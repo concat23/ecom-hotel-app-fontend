@@ -1,6 +1,6 @@
 import React from 'react'
-import { Col } from '../column/Col'
-import { BaseCard } from '../card/BaseCard'
+import { Col } from '../../column/Col'
+import { BaseCard } from '../../card/BaseCard'
 export const RoomCard = ({room}) => {
     const handleBookNow = () => {
       
@@ -9,6 +9,7 @@ export const RoomCard = ({room}) => {
   return (
     <Col>
          <BaseCard
+            id={room.id}
             key={room.id}
             image={`data:image/jpeg;base64,${room.photo}`}
             title={room.title}
