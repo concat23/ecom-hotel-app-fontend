@@ -16,12 +16,12 @@ export const BookingForm = () => {
     const[errorMessage, setErrorMessage] = useState("")
     const[roomPrice, setRoomPrice] = useState(0)
     const[booking, setBooking] = useState({
-        guestName:"",
+        guestFullName:"",
         guestEmail:"",
         checkInDate:"",
         checkOutDate:"",
-        numberOfAdults:"",
-        numberOfChildren: "",
+        numOfAdults:"",
+        numOfChildren: "",
     })
 
     const { id } = useParams();
@@ -78,8 +78,8 @@ export const BookingForm = () => {
     }
 
     const isGuestCountValid = () =>{
-        const adultCount = parseInt(booking.numberOfAdults)
-        const childrenCount = parseInt(booking.numberOfChildren)
+        const adultCount = parseInt(booking.numOfAdults)
+        const childrenCount = parseInt(booking.numOfChildren)
         const totalCount = adultCount + childrenCount
         return totalCount >= 1 && adultCount >= 1
     }
@@ -107,16 +107,19 @@ export const BookingForm = () => {
     }
 
 
-    const handleBooking = async() =>{
+    const handleBooking = async() => {
         try {
-            const confirmationCode = await bookingRoom(id, booking)
-            setIsSubmitted(true) 
-            navigate("/",{state:{message: confirmationCode}})
+            const confirmationCode = await bookingRoom(id, booking);
+            console.log("Booking successfully. Confirmation code:", confirmationCode);
+            setIsSubmitted(true);
+            navigate("/", { state: { message: confirmationCode } });
         } catch (error) {
-            setErrorMessage(error.message)
-            navigate("/",{state:{error: errorMessage}})
+            console.error("Error booking room:", error);
+            setErrorMessage(error.message);
+            navigate("/", { state: { error: errorMessage } });
         }
-    }
+    };
+    
     return (
         <>
             <div className="booking-container">
@@ -126,13 +129,13 @@ export const BookingForm = () => {
                     </div>
                     <form className="booking-form" noValidate validated={isValidated.toString()} onSubmit={handleSubmit}>
                         <FormGroup className="form-group">
-                            <FormLabel className="form-label" htmlFor='guestName'>Full Name: </FormLabel>
+                            <FormLabel className="form-label" htmlFor='guestFullName'>Full Name: </FormLabel>
                             <FormControl 
                                 className="form-control"
                                 required type={'text'} 
-                                id="guestName" 
-                                name="guestName" 
-                                value={booking.guestName}
+                                id="guestFullName" 
+                                name="guestFullName" 
+                                value={booking.guestFullName}
                                 placeholder="Enter your full name ..."
                                 onChange={handleInputChange}>
                             </FormControl>
@@ -191,13 +194,13 @@ export const BookingForm = () => {
                             <legend className="form-legend">Number of Guests</legend>
                             <div className="guest-inputs">
                                 <div className="form-group">
-                                    <FormLabel className="form-label" htmlFor='numberOfAdults'>Adults: </FormLabel>
+                                    <FormLabel className="form-label" htmlFor='numOfAdults'>Adults: </FormLabel>
                                     <FormControl 
                                         className="form-control"
                                         required type={'text'} 
-                                        id="numberOfAdults" 
-                                        name="numberOfAdults" 
-                                        value={booking.numberOfAdults}
+                                        id="numOfAdults" 
+                                        name="numOfAdults" 
+                                        value={booking.numOfAdults}
                                         placeholder="0"
                                         min={1}
                                         onChange={handleInputChange}>
@@ -206,13 +209,13 @@ export const BookingForm = () => {
                                 </div>
     
                                 <div className="form-group">
-                                    <FormLabel className="form-label" htmlFor='numberOfChildren'>Children: </FormLabel>
+                                    <FormLabel className="form-label" htmlFor='numOfChildren'>Children: </FormLabel>
                                     <FormControl 
                                         className="form-control"
                                         required type={'text'} 
-                                        id="numberOfChildren" 
-                                        name="numberOfChildren" 
-                                        value={booking.numberOfChildren}
+                                        id="numOfChildren" 
+                                        name="numOfChildren" 
+                                        value={booking.numOfChildren}
                                         placeholder="0"
                                         min={0}
                                         onChange={handleInputChange}>
@@ -241,130 +244,4 @@ export const BookingForm = () => {
             </div>
         </>
     );
-    
-    // return (
-    //     <>
-    //         <div>
-    //             <div>
-    //                  <div>
-    //                         <div>
-    //                             <h4>Reserve Room</h4>
-    //                             <form noValidate validated={isValidated.toString()} onSubmit={handleSubmit}>
-    //                                 <FormGroup>
-    //                                     <FormLabel htmlFor='guestName'>Full Name: </FormLabel>
-    //                                     <FormControl 
-    //                                                 required type="text" 
-    //                                                 id="guestName" 
-    //                                                 name="guestName" 
-    //                                                 value={booking.guestName}
-    //                                                 placeholder="Enter your full name ..."
-    //                                                 onChange={handleInputChange}>
-    //                                     </FormControl>
-    //                                     <FormControlFeedback type={"invalid"}>Please enter your fullname</FormControlFeedback>
-    //                                 </FormGroup>
-
-
-    //                                 <FormGroup>
-    //                                     <FormLabel htmlFor='guestEmail'>Email: </FormLabel>
-    //                                     <FormControl 
-    //                                                 required type="text" 
-    //                                                 id="guestEmail" 
-    //                                                 name="guestEmail" 
-    //                                                 value={booking.guestEmail}
-    //                                                 placeholder="Enter your email ..."
-    //                                                 onChange={handleInputChange}>
-    //                                     </FormControl>
-    //                                     <FormControlFeedback type={"invalid"}>Please enter your email</FormControlFeedback>
-    //                                 </FormGroup>
-
-    //                                 <fieldset style={{border:'2px'}}>
-    //                                     <legend>Lodging Period</legend>
-    //                                     <div>
-    //                                         <div>
-    //                                             <FormLabel htmlFor='checkInDate'>Check-In date: </FormLabel>
-    //                                             <FormControl 
-    //                                                         required type="text" 
-    //                                                         id="checkInDate" 
-    //                                                         name="checkInDate" 
-    //                                                         value={booking.checkInDate}
-    //                                                         placeholder="check-in date"
-    //                                                         onChange={handleInputChange}>
-    //                                             </FormControl>
-    //                                             <FormControlFeedback type={"invalid"}>Please select a check-in date</FormControlFeedback>
-    //                                         </div>
-
-    //                                         <div>
-    //                                             <FormLabel htmlFor='checkOutDate'>Check-Out date: </FormLabel>
-    //                                             <FormControl 
-    //                                                         required type="text" 
-    //                                                         id="checkOutDate" 
-    //                                                         name="checkOutDate" 
-    //                                                         value={booking.checkOutDate}
-    //                                                         placeholder="check-out date"
-    //                                                         onChange={handleInputChange}>
-    //                                             </FormControl>
-    //                                             <FormControlFeedback type={"invalid"}>Please select a check-out date</FormControlFeedback>
-    //                                         </div>
-    //                                         {
-    //                                             errorMessage && <p>{errorMessage}</p>
-    //                                         }
-    //                                     </div>
-    //                                 </fieldset>
-
-    //                                 <fieldset>
-    //                                     <legend>Number of Guest</legend>
-    //                                     <div>
-    //                                         <div>
-    //                                             <FormLabel htmlFor='numberOfAdults'>Adults: </FormLabel>
-    //                                             <FormControl 
-    //                                                         required type="text" 
-    //                                                         id="numberOfAdults" 
-    //                                                         name="numberOfAdults" 
-    //                                                         value={booking.numberOfAdults}
-    //                                                         placeholder="0"
-    //                                                         min={1}
-    //                                                         onChange={handleInputChange}>
-    //                                             </FormControl>
-    //                                             <FormControlFeedback type={"invalid"}>Please select a least 1 adult</FormControlFeedback>
-    //                                         </div>
-
-    //                                         <div>
-    //                                             <FormLabel htmlFor='numberOfChildren'>Children: </FormLabel>
-    //                                             <FormControl 
-    //                                                         required type="text" 
-    //                                                         id="numberOfChildren" 
-    //                                                         name="numberOfChildren" 
-    //                                                         value={booking.numberOfChildren}
-    //                                                         placeholder="0"
-    //                                                         min={0}
-    //                                                         onChange={handleInputChange}>
-    //                                             </FormControl>
-    //                                         </div>
-    //                                         {
-    //                                             errorMessage && <p>{errorMessage}</p>
-    //                                         }
-    //                                     </div>
-    //                                 </fieldset>
-
-    //                                 <div>
-    //                                     <button type='submit'>Continue</button>
-    //                                 </div>
-
-    //                             </form>
-    //                         </div>
-    //                  </div>
-    //                  <div>
-    //                     {
-    //                         isSubmitted && (
-    //                             <BookingSummary booking={booking} 
-    //                                             payment={calculatePayment} 
-    //                                             isFormValid={isValidated} 
-    //                                             onConfirm={handleBooking}/>
-    //                         )
-    //                     }
-    //                  </div>
-    //             </div>
-    //         </div>
-    //     </>
-    // )
 }

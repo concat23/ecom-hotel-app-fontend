@@ -38,7 +38,7 @@ export const BookingSummary = ({booking, payment, isFormValid, onConfirm}) => {
         <div className="reservation-summary-container">
             <h4>Reservation Summary</h4>
             <p>
-                FullName: <strong>{booking.guestName}</strong>
+                FullName: <strong>{booking.guestFullName}</strong>
             </p>
             <p>
                 Email: <strong>{booking.guestEmail}</strong>
@@ -55,10 +55,10 @@ export const BookingSummary = ({booking, payment, isFormValid, onConfirm}) => {
             <div className="guest-info">
                 <h5>Number Of Guests</h5>
                 <strong>
-                    Adult{booking.numberOfAdults > 1 ? "s" : ""} : {booking.numberOfAdults}
+                    Adult{booking.numOfAdults > 1 ? "s" : ""} : {booking.numOfAdults}
                 </strong>
                 <strong>
-                    Children: {booking.numberOfChildren}
+                    Children: {booking.numOfChildren}
                 </strong>
             </div>
             {payment > 0 ? (

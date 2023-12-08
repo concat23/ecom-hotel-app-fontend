@@ -94,11 +94,11 @@ export async function bookingRoom(id, booking) {
     const response = await api.post(`/api/bookings/room/${id}/booking`, booking);
     return response.data;
   } catch (error) {
+    console.error("Error booking room:", error);
     if (error.response && error.response.data) {
-      throw new Error(error.response.data);
-    } else {
-      throw new Error(`Error booking room: ${error.message}`);
+      console.error("Server response:", error.response.data);
     }
+    throw new Error(`Error booking room: ${error.message}`);
   }
 }
 
