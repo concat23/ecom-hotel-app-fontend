@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { addRoom } from '../utils/ApiFunctions'
+import { addRoom } from '../../utils/ApiFunctions'
 import '../room/style.css'
-import RoomTypeSelector from '../common/RoomTypeSelector'
+import RoomTypeSelector from '../../common/RoomTypeSelector'
 
 export const AddRoom = () => {
     const[newRoom, setNewRoom] = useState({

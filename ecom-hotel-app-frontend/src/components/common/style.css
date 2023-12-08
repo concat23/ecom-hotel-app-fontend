@@ -226,9 +226,21 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  /* max-width: 800px;
   margin: 0 auto;
-  padding: 0 20px; /* Tạo ra một khoảng trắng nhỏ xung quanh nội dung */
+  padding: 0 20px;  */
+
+    position: relative;
+    top: 0;
+    left: -50%;
+    right: -50%;
+    transform: translate(50%, 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 95em;
+    margin: 15rem auto;
+    padding: 0 20px;
 }
 
 h4 {

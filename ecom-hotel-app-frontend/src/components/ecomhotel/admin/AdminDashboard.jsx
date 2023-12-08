@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../admin/style.css'
+import './style.css'
 export const AdminDashboard = () => {
   return (
     <section className='adminDashboard'>

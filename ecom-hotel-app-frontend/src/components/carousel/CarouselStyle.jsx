@@ -4,18 +4,18 @@ import '../carousel/style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-const CarouselStyle = ({ rooms, indicators, currentIndex }) => {   // Auto slide
-  // const [currentIndex, setCurrentIndex] = useState(0);  // Manual click slide
+const CarouselStyle = ({ items, rooms, indicators, currentIndex }) => {
+  const [currentSlice, setCurrentSlice] = useState(0);
 
   const goToNextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === rooms.length - 1 ? 0 : prevIndex + 1
+    setCurrentSlice((prevSlice) =>
+      prevSlice === Math.ceil(rooms.length / items) - 1 ? 0 : prevSlice + 1
     );
   };
 
   const goToPrevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? rooms.length - 1 : prevIndex - 1
+    setCurrentSlice((prevSlice) =>
+      prevSlice === 0 ? Math.ceil(rooms.length / items) - 1 : prevSlice - 1
     );
   };
 
@@ -24,38 +24,46 @@ const CarouselStyle = ({ rooms, indicators, currentIndex }) => {   // Auto slide
     return <div className="carousel-placeholder">No Rooms</div>;
   }
 
+  const startIdx = currentSlice * items;
+  const endIdx = startIdx + items;
+  const visibleRooms = rooms.slice(startIdx, endIdx);
+
   return (
     <div className="carousel">
       {indicators && rooms.length > 1 && (
         <div className="card-carousel-indicators">
-          {rooms.map((_, index) => (
+          {Array.from({ length: Math.ceil(rooms.length / items) }, (_, index) => (
             <div
               key={index}
-              className={`card-carousel-indicator ${currentIndex === index ? 'active' : ''}`}
-              onClick={() => setCurrentIndex(index)}
+              className={`card-carousel-indicator ${currentSlice === index ? 'active' : ''}`}
+              onClick={() => setCurrentSlice(index)}
             ></div>
           ))}
         </div>
       )}
       <button className="arrow left" onClick={goToPrevSlide}>
-          <FontAwesomeIcon icon={faChevronLeft} />
+        <FontAwesomeIcon icon={faChevronLeft} />
       </button>
-      {rooms.length > 0 && (
+      {visibleRooms.length > 0 && (
         <div className="card-carousel">
-          <img
-            className="card-carousel-image"
-            src={`data:image/jpeg;base64,${rooms[currentIndex].photo}`}
-            alt={`Slide ${currentIndex + 1}`}
-          />
-          <div className="card-carousel-body">
-            <h2>{rooms[currentIndex].roomType}</h2>
-            <p>{rooms[currentIndex].description}</p>
-            <p className="card-carouselprice">Price: ${parseFloat(rooms[currentIndex].roomPrice).toFixed(2)}</p>
-          </div>
+          {visibleRooms.map((room, idx) => (
+            <div key={idx} className="carousel-item">
+              <img
+                className="card-carousel-image"
+                src={`data:image/jpeg;base64,${room.photo}`}
+                alt={`Slide ${startIdx + idx + 1}`}
+              />
+              <div className="card-carousel-body">
+                <h2>{room.roomType}</h2>
+                <p>{room.description}</p>
+                <p className="card-carouselprice">Price: ${parseFloat(room.roomPrice).toFixed(0)}</p>
+              </div>
+            </div>
+          ))}
         </div>
       )}
       <button className="arrow right" onClick={goToNextSlide}>
-          <FontAwesomeIcon icon={faChevronRight} />
+        <FontAwesomeIcon icon={faChevronRight} />
       </button>
     </div>
   );
@@ -71,10 +79,12 @@ CarouselStyle.propTypes = {
     })
   ),
   indicators: PropTypes.bool,
+  items: PropTypes.number,
 };
 
 CarouselStyle.defaultProps = {
   indicators: true,
+  items: 3,
 };
 
 export default CarouselStyle;

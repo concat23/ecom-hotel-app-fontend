@@ -1,0 +1,196 @@
+/* ================ Booking Form =============== */
+
+.booking-container {
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.booking-container:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.booking-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.form-fieldset {
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.form-legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #3498db;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.form-actions {
+    text-align: center;
+}
+
+.submit-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #2980b9;
+}
+
+.booking-summary-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Booking Success */
+
+.booking-success-container {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.booking-header {
+    text-align: center;
+}
+
+.success-message,
+.error-message {
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.success-message h3,
+.error-message h3 {
+    color: #27ae60;
+}
+
+.error-message {
+    border-radius: 5px;
+}
+
+.success-message p,
+.error-message p {
+    margin-top: 10px;
+}
+
+/* Booking Summary */
+
+.reservation-summary-container {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.guest-info {
+    margin-top: 15px;
+}
+
+.confirm-booking-button {
+    margin-top: 15px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.confirm-booking-button:hover {
+    background-color: #2980b9;
+}
+
+/* Check Out */
+
+.check-out-container {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.check-out-container:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Feedback */
+
+.feedback-message {
+    font-size: 14px;
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.feedback-message.success {
+    color: #27ae60;
+    background-color: #d4edda;
+    border-radius: 5px;
+}
+
+.feedback-message.error {
+    color: #e74c3c;
+    background-color: #f8d7da;
+    border-radius: 5px;
+}
+
+.feedback-message.invalid {
+    color: #ff8c00;
+    background-color: #fff3cd;
+    border-radius: 5px;
+}

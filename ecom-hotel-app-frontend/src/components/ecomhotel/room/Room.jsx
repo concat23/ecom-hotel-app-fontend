@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { RoomCard } from './RoomCard'
-import { Container } from '../../items/Container'
-import { Col } from '../column/Col'
-import { RowStyle } from '../column/RowStyle'
-import { Row } from '../column/Row'
-import { RoomFilter } from '../common/RoomFilter'
-import { RoomPaginator } from '../common/RoomPaginator'
-import { getAllRooms } from '../utils/ApiFunctions'
+import { RoomCard } from '../room/RoomCard'
+import { Container } from '../../../items/Container'
+import { Col } from '../../../components/column/Col'
+import { RowStyle } from '../../../components/column/RowStyle'
+import { Row } from '../../../components/column/Row'
+import { RoomFilter } from '../../common/RoomFilter'
+import { RoomPaginator } from '../../common/RoomPaginator'
+import { getAllRooms } from '../../utils/ApiFunctions'
 export const Room = () => {
 
     const [data, setData] = useState([])

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { getAllRooms, deleteDropRoom, deleteUpdateBackupAndRestoreRoom } from "../utils/ApiFunctions";
-import { RoomFilter } from "../common/RoomFilter";
-import { RoomPaginator } from "../common/RoomPaginator";
+import { getAllRooms, deleteDropRoom, deleteUpdateBackupAndRestoreRoom } from "../../utils/ApiFunctions";
+import { RoomFilter } from "../../common/RoomFilter";
+import { RoomPaginator } from "../../common/RoomPaginator";
 import "../room/style.css";
-import { Col } from "../column/Col";
-import { Row } from "../column/Row";
-import { Btn } from "../button/Btn";
+import { Col } from "../../column/Col";
+import { Row } from "../../column/Row";
+import { Btn } from "../../button/Btn";
 import { FaEdit, FaEye, FaFlushed, FaPlus, FaTrashAlt, FaTrashRestore } from "react-icons/fa"
 import { Link } from "react-router-dom";
 

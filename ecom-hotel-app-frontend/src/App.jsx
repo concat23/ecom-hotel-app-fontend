@@ -1,14 +1,15 @@
 import './App.css'
-import { AddRoom } from './components/room/AddRoom'
-import { ExistingRoom } from './components/room/ExistingRoom'
+import { AddRoom } from './components/ecomhotel/room/AddRoom'
+import { ExistingRoom } from './components/ecomhotel/room/ExistingRoom'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home } from './components/home/Home'
-import { EditRoom } from './components/room/EditRoom'
+import { Home } from './components/ecomhotel/home/Home'
+import { EditRoom } from './components/ecomhotel/room/EditRoom'
 import { NavBar } from './components/layouts/NavBar';
 import { Footer } from './components/layouts/Footer';
-import { RoomListing } from './components/room/RoomListing';
-import { AdminDashboard } from './components/admin/AdminDashboard';
+import { RoomListing } from './components/ecomhotel/room/RoomListing';
+import { AdminDashboard } from './components/ecomhotel/admin/AdminDashboard';
 import { NavBarVertical } from './components/layouts/NavBarVertical';
+import { CheckOut } from './components/ecomhotel/booking/CheckOut';
 
 function App() {
   return (   
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/edit-room/:id" element={<EditRoom />} />
                 <Route path="/existing-rooms" element={<ExistingRoom />} />
                 <Route path="/add-room" element={<AddRoom />} />
+                <Route path='/booking-room/:id' element={<CheckOut />} />
                 <Route path="/browse-all-rooms" element={<RoomListing />} />
                 <Route path="/administrator" element={<AdminDashboard />} />
           </Routes>
