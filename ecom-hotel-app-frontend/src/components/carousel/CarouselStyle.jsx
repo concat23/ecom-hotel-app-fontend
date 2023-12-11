@@ -4,20 +4,29 @@ import '../carousel/style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-const CarouselStyle = ({ items, rooms, indicators, currentIndex }) => {
+const CarouselStyle = ({ items, rooms, indicators }) => {
   const [currentSlice, setCurrentSlice] = useState(0);
-
+  const [currentIndex, setCurrentIndex] = useState(0); 
   const goToNextSlide = () => {
     setCurrentSlice((prevSlice) =>
       prevSlice === Math.ceil(rooms.length / items) - 1 ? 0 : prevSlice + 1
     );
+    // Adjust currentIndex based on the next slice
+    setCurrentIndex((prevIndex) =>
+      prevIndex + items < rooms.length ? prevIndex + items : 0
+    );
   };
-
+  
   const goToPrevSlide = () => {
     setCurrentSlice((prevSlice) =>
       prevSlice === 0 ? Math.ceil(rooms.length / items) - 1 : prevSlice - 1
     );
+    // Adjust currentIndex based on the previous slice
+    setCurrentIndex((prevIndex) =>
+      prevIndex - items >= 0 ? prevIndex - items : rooms.length - 1
+    );
   };
+  
 
   // Check if rooms is undefined or has zero length
   if (!rooms || rooms.length === 0) {
@@ -84,7 +93,7 @@ CarouselStyle.propTypes = {
 
 CarouselStyle.defaultProps = {
   indicators: true,
-  items: 3,
+  items: 2,
 };
 
 export default CarouselStyle;
