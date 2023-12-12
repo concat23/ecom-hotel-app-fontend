@@ -6,10 +6,11 @@ export const api = axios.create({
 });
 
 // Function to add a new room
-export async function addRoom(photo, roomType, roomPrice) {
+export async function addRoom(photo,roomCode, roomType, roomPrice) {
   const formData = new FormData();
 
   formData.append("photo", photo);
+  formData.append("roomCode",roomCode);
   formData.append("roomType", roomType);
   formData.append("roomPrice", roomPrice);
 
@@ -67,6 +68,7 @@ export async function deleteUpdateBackupAndRestoreRoom(id) {
 export async function updateRoom(id, roomData) {
   const formData = new FormData();
 
+  formData.append("roomCode", roomData.roomCode);
   formData.append("roomType", roomData.roomType);
   formData.append("roomPrice", roomData.roomPrice);
   formData.append("photo", roomData.photo);

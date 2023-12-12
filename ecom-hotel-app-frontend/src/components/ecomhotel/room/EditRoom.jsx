@@ -6,6 +6,7 @@ import {Link, useParams} from 'react-router-dom'
 import { updateRoom } from "../../utils/ApiFunctions";
 export const EditRoom = () => {
   const[room, setRoom] = useState({
+    roomCode:'',
     roomType : '',
     roomPrice : '',
     photo : null 
@@ -102,6 +103,12 @@ const handleRoomInputChange = (e) => {
 
 
                     <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                            <label htmlFor="roomCode" className="form-label">
+                                Room Code
+                            </label>
+                            <input type="text" className="form-control" id="roomCode" name="roomCode" value={room.roomCode} onChange={handleRoomInputChange} />
+                        </div>
                         <div className="mb-3">
                             <label htmlFor="roomType" className="form-label">
                                 Room Type

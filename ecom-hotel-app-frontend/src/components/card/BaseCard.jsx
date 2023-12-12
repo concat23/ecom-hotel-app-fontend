@@ -2,16 +2,21 @@ import React from 'react'
 import '../card/style.css'
 import { FaDollarSign, FaMoneyBillAlt, FaMoneyBillWave, FaQuinscape, FaTicketAlt, FaWifi } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-export const BaseCard = ({ id,image, title, body, roomType, roomPrice, onBookNowClick, footer, item, text }) => {
+export const BaseCard = ({ id,image, title, body, roomCode,roomType, roomPrice, onBookNowClick, footer, item, text }) => {
 
   return (
       <div className="card-base">
           <div className="card-imag-base">
+               
                 <Link to={`/booking-room/${id}`}>
+                <div className='card-roomCode-base'>
+                    <h3>{roomCode}</h3>    
+                </div>
                 <img src={image} alt="Room" />
                 </Link>
           </div>
           <div className="card-content-base">
+             
               <div className="card-header-base">
                   <h3 className="card-title-base">{title}</h3>
                   {item && <span className="card-icon">{item}</span>}

@@ -118,6 +118,7 @@ export const BookingForm = () => {
         const checkOutDate = moment(booking.checkOutDate);
         const diffInDays = checkOutDate.diff(checkInDate);
         const price = roomPrice ? roomPrice : 0;
+        console.log(price);
         return diffInDays * price;
     };
 
@@ -165,7 +166,7 @@ export const BookingForm = () => {
             const confirmationCode = await bookingRoom(id, booking);
             console.log('Booking successfully. Confirmation code:', confirmationCode);
             setIsSubmitted(true);
-            navigate('/', { state: { message: confirmationCode } });
+            navigate('/booking-success', { state: { message: confirmationCode } });
         } catch (error) {
             console.error('Error booking room:', error);
             setErrorMessage(error.message);
