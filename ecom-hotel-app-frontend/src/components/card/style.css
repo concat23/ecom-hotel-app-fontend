@@ -147,6 +147,26 @@
   display: block; /* Remove extra space beneath the image */
 }
 
+.card-roomCode-base{
+    padding:3px;
+    height: 30px;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #558dc8b0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.card-roomCode-base h3{
+  padding:0 15px;
+  border-bottom: 1.5px solid #558dc8b0;
+  border-right: 1.5px solid #558dc8b0;
+  border-radius: 40px;
+  font-size: 13px;
+}
+
 /* Add more styles as needed */
 
 

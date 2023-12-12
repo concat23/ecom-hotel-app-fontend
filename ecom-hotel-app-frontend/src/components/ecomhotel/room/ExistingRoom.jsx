@@ -129,6 +129,7 @@ export const ExistingRoom = () => {
                 <thead>
                   <tr className="text-center">
                     <th>Room ID</th>
+                    <th>Room Code</th>
                     <th>Room Type</th>
                     <th>Room Price</th>
                     <th>Actions</th>
@@ -138,6 +139,7 @@ export const ExistingRoom = () => {
                   {currentRooms.map((room) => (
                     <tr key={room.id} className="text-center">
                       <td>{room.id}</td>
+                      <td>{room.roomCode}</td>
                       <td>{room.roomType}</td>
                       <td>{room.roomPrice}</td>
                       <td className="group-features">

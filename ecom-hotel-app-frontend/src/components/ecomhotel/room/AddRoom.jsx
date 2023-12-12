@@ -33,7 +33,10 @@ export const AddRoom = () => {
     const handleRoomInputChange = (e) => {
         const name = e.target.name;
         let value = e.target.value;
-        if(name === "roomType"){
+        if(name === "roomCode"){
+            value = e.target.value;
+        }
+        else if(name === "roomType"){
             value = e.target.value;
         }
         else if (name === "roomPrice" && !isNaN(value)) {
@@ -72,12 +75,13 @@ export const AddRoom = () => {
         e.preventDefault()
 
         try{
-            const success = await addRoom(newRoom.photo, newRoom.roomType, newRoom.roomPrice)
+            const success = await addRoom(newRoom.photo,newRoom.roomCode, newRoom.roomType, newRoom.roomPrice)
 
             if(success !== undefined){
                 setSuccessMessage("A new room was added to the database.")
                 setNewRoom({ 
                                 photo: null, 
+                                roomCode: '',
                                 roomType:'',
                                 roomPrice:''
                             })
@@ -122,6 +126,21 @@ export const AddRoom = () => {
 
 
                     <form onSubmit={handleSubmit}>
+                         <div className="mb-3">
+                            <label htmlFor="roomCode" className="form-label">
+                                Room Code
+                            </label>
+                           <input 
+                                    type="text"
+                                    className="form-control"
+                                    required
+                                    id="roomCode"
+                                    name="roomCode"
+                                    value={newRoom.roomCode || ''}
+                                    onChange={handleRoomInputChange}>
+
+                           </input>
+                        </div>
                         <div className="mb-3">
                             <label htmlFor="roomType" className="form-label">
                                 Room Type

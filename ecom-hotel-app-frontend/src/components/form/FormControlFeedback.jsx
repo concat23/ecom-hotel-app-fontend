@@ -2,7 +2,7 @@
 import React from 'react';
 import '../form/style.css'
 
-export const FormControlFeedback = ({ message, type }) => {
+export const FormControlFeedback = ({ message, type, isValid }) => {
   let color = '';
 
   switch (type) {
@@ -20,11 +20,10 @@ export const FormControlFeedback = ({ message, type }) => {
   }
 
   return (
-    <div className={`feedback-message ${type}`} style={{ color }}>
+    <div className={`feedback-message ${type} form-control-feedback ${isValid ? 'valid-feedback' : 'invalid-feedback'}`} style={{ color }}>
       {message}
+      {isValid ? <p style={{ color:"green" }} >Looks good!</p> : <p style={{color:"red"}}>Please provide a valid input.</p>}
     </div>
   );
 };
-
-
 

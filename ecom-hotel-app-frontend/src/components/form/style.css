@@ -111,18 +111,32 @@ label {
 /* ========= Form Feedback ========= */
 
 .feedback-message {
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 5px;
-}
-
-.feedback-message.success {
-    color: green;
-}
-
-.feedback-message.error {
-    color: red;
-}
-
-.feedback-message.invalid {
-    color: orange;
-}
+  }
+  
+  .valid-feedback {
+    color: #28a745; /* Green color for valid feedback */
+  }
+  
+  .invalid-feedback {
+    color: #dc3545; /* Red color for invalid feedback */
+  }
+  
+  /* Additional styling for form-control-feedback class */
+  .form-control-feedback {
+    display: block;
+  }
+  
+  /* Adjusting the style based on the feedback type (success, error, etc.) */
+  .success-feedback {
+    color: #28a745;
+  }
+  
+  .error-feedback {
+    color: #dc3545;
+  }
+  
+  /* Custom styling for specific scenarios */
+  /* .feedback-message.custom-style { ... } */
+  
