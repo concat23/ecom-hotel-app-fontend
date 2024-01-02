@@ -14,7 +14,7 @@ export async function addRoom(photo,roomCode, roomType, roomPrice) {
   formData.append("roomType", roomType);
   formData.append("roomPrice", roomPrice);
 
-  const response = await api.post("/api/rooms/add/new-room", formData);
+  const response = await api.post("/api/v1/rooms/add/new-room", formData);
 
   if (response.status === 201) {
     return true;
@@ -26,7 +26,7 @@ export async function addRoom(photo,roomCode, roomType, roomPrice) {
 // Function to get room types
 export async function getRoomTypes() {
   try {
-    const response = await api.get("/api/rooms/room/types");
+    const response = await api.get("/api/v1/rooms/room/types");
     console.log(response);
     return response.data;
   } catch (error) {
@@ -37,7 +37,7 @@ export async function getRoomTypes() {
 // Function to get all rooms
 export async function getAllRooms() {
   try {
-    const resultList = await api.get("/api/rooms/all-rooms");
+    const resultList = await api.get("/api/v1/rooms/all-rooms");
     return resultList.data;
   } catch (error) {
     throw new Error("Error fetching rooms");
@@ -47,7 +47,7 @@ export async function getAllRooms() {
 // Function to delete a room
 export async function deleteDropRoom(id) {
   try {
-    const result = await api.delete(`/api/rooms/delete/room/${id}`);
+    const result = await api.delete(`/api/v1/rooms/delete/room/${id}`);
     return result.data;
   } catch (error) {
     throw new Error(`Error, Deleting room ${error.message}`);
@@ -57,7 +57,7 @@ export async function deleteDropRoom(id) {
 // Function to delete or update a room with backup and restore
 export async function deleteUpdateBackupAndRestoreRoom(id) {
   try {
-    const result = await api.delete(`/api/rooms/backup-restore/room/${id}`);
+    const result = await api.delete(`/api/v1/rooms/backup-restore/room/${id}`);
     return result.data;
   } catch (error) {
     throw new Error(`Error, Backup restoring room ${error.message}`);
@@ -73,7 +73,7 @@ export async function updateRoom(id, roomData) {
   formData.append("roomPrice", roomData.roomPrice);
   formData.append("photo", roomData.photo);
 
-  const response = await api.put(`/api/rooms/update/${id}`, formData);
+  const response = await api.put(`/api/v1/rooms/update/${id}`, formData);
 
   return response;
 }
@@ -81,7 +81,7 @@ export async function updateRoom(id, roomData) {
 // Function to get a room by ID
 export async function getRoomById(id) {
   try {
-    const result = await api.get(`/api/rooms/room/${id}`);
+    const result = await api.get(`/api/v1/rooms/room/${id}`);
     return result.data;
   } catch (error) {
     throw new Error(`Error fetching room ${error.message}`);
@@ -93,7 +93,7 @@ export async function getRoomById(id) {
 // Function to book a room
 export async function bookingRoom(id, booking) {
   try {
-    const response = await api.post(`/api/bookings/room/${id}/booking`, booking);
+    const response = await api.post(`/api/v1/bookings/room/${id}/booking`, booking);
     return response.data;
   } catch (error) {
     console.error("Error booking room:", error);
@@ -107,7 +107,7 @@ export async function bookingRoom(id, booking) {
 // Function to get all bookings
 export async function getAllBookings() {
   try {
-    const resultList = await api.get(`/api/bookings/all-bookings`);
+    const resultList = await api.get(`/api/v1/bookings/all-bookings`);
     return resultList.data;
   } catch (error) {
     throw new Error(`Error fetching bookings: ${error.message}`);
@@ -117,7 +117,7 @@ export async function getAllBookings() {
 // Function to get a booking by confirmation code
 export async function getBookingByConfirmationCode(confirmationCode) {
   try {
-    const result = await api.get(`/api/bookings/confirmation/${confirmationCode}`);
+    const result = await api.get(`/api/v1/bookings/confirmation/${confirmationCode}`);
     return result.data;
   } catch (error) {
     if (error.response && error.response.data) {
@@ -131,7 +131,7 @@ export async function getBookingByConfirmationCode(confirmationCode) {
 // Function to cancel a booking
 export async function cancelBooking(id) {
   try {
-    const result = await api.delete(`/api/bookings/booking/${id}/delete`);
+    const result = await api.delete(`/api/v1/bookings/booking/${id}/delete`);
     return result.data;
   } catch (error) {
     throw new Error(`Error cancelling booking: ${error.message}`);
